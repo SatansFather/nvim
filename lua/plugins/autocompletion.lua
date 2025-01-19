@@ -1,6 +1,9 @@
 return { -- Autocompletion
   'hrsh7th/nvim-cmp',
   dependencies = {
+		{
+			"github/copilot.vim"
+		},
     -- Snippet Engine & its associated nvim-cmp source
     {
       'L3MON4D3/LuaSnip',
