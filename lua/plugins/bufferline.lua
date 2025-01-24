@@ -44,6 +44,8 @@ return {
       highlights = {
         separator = {
           fg = '#434C5E',
+		  --fg = '#FF3440',
+		  --bg = '#FF3440',
         },
         buffer_selected = {
           bold = true,
