@@ -1,11 +1,17 @@
+-- Options are automatically loaded before lazy.nvim startup
+-- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- Add any additional options before
+
 vim.wo.number         = true               -- show line numbers
 vim.o.clipboard       = 'unnamedplus'      -- use os clipboard
 vim.o.wrap            = false              -- do not wrap
 vim.o.linebreak       = false              -- do not wrap
 vim.o.mouse           = 'a'                -- allow mouse
 vim.o.autoindent      = true               -- keep line indentation on new line
+vim.o.indentexpr      = ''                 -- dont be fucked up
+vim.o.relativenumber  = false              -- show absolute line number
 vim.o.ignorecase      = true               -- case insensitive search
-vim.o.smartcase       = true               -- respect captical case in search
+vim.o.smartcase       = false              -- respect captical case in search
 vim.o.shiftwidth      = 4                  -- tab width
 vim.o.tabstop         = 4                  -- tab width
 vim.o.softtabstop     = 0                  -- DO NOT convert tabs to spaces
@@ -36,8 +42,8 @@ vim.o.backup          = false              -- create a backup file when saving
 vim.o.writebackup     = false              -- prevent saving files open in other programs
 vim.o.undofile        = true               -- save undo history
 vim.o.completeopt     = 'menuone,noselect' -- set completeopt to have a better completion experience
+vim.o.list = false
 
-vim.opt.shortmess:append 'c' -- Don't give |ins-completion-menu| messages (default: does not include 'c')
-vim.opt.iskeyword:append '-' -- Hyphenated words recognized by searches (default: does not include '-')
-vim.opt.formatoptions:remove { 'c', 'r', 'o' } -- Don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode. (default: 'croql')
-vim.opt.runtimepath:remove '/usr/share/vim/vimfiles' -- Separate Vim plugins from Neovim in case Vim still in use (default: includes this path if Vim is installed)
+-- disable autoformat on save
+vim.g.autoformat = false
+
