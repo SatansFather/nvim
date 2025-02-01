@@ -8,7 +8,8 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
 -- disable comment on new line
-vim.api.nvim_create_autocmd("FileType", {
+vim.api.nvim_create_autocmd("FileType",
+{
 	pattern = "*",
 	callback = function()
 		vim.opt.formatoptions:remove { "c", "r", "o" }
@@ -17,3 +18,9 @@ vim.api.nvim_create_autocmd("FileType", {
 	--group = general,
 })
 
+vim.api.nvim_create_autocmd("VimEnter",
+{
+	callback = function()
+		vim.cmd("inoremap <CR> <CR>.<BS>")
+	end
+})
