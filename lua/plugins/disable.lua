@@ -23,18 +23,13 @@ return
 	},
 
 	-- disable tab line animation
-	{
-		"echasnovski/mini.indentscope",
-		opts =
-		{
-			draw =
-			{
-				animation = function()
-					return 0
-				end,
-			},
-		},
-	}
+	{ "echasnovski/mini.indentscope", enabled = false },
 	--{ "Saghen/blink.cmp", enabled = false },
 	--{ "rafamadriz/friendly-snippets", enabled = false },
+
+	{ "nvim-neo-tree/neo-tree.nvim", enabled = false },
+
+	{ "Saghen/blink.cmp", enabled = false },
+	{ "garymjr/nvim-snippets", enabled = false },
+	{ "rafamadriz/friendly-snippets", enabled = false },
 }
