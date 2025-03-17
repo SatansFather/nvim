@@ -2,6 +2,11 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- save with leader w
+vim.keymap.del({ 'n', 'i', 'v', }, '<C-s>')
+vim.keymap.set('n', '<leader>w', ':w<CR>', { noremap = true, silent = true, desc = 'Save' })
+vim.keymap.set('n', '<leader><S-w>', ':wa<CR>', { noremap = true, silent = true, desc = 'Save All' })
+
 -- swap lines up and down (normal mode)
 vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { noremap = true, silent = true })
@@ -65,9 +70,23 @@ vim.keymap.del('n', '<S-h>')
 --vim.keymap.set('n', '<leader>fe', '<cmd>lua MiniFiles.open()<CR>', { noremap = true, silent = true, desc = 'Open Mini File Explorer' })
 
 -- cmake commands
-vim.keymap.set('n', '<leader>1', '<cmd>CMakeSelectBuildType<CR>', { noremap = true, silent = true, desc = 'Select CMake Build Type' })
+
+_G.cmake_command = require('config/cmake_build_command')
+
+local function get_cmake_build_command()
+	local f = io.open("CMakePresets.json", "r")
+	if f then
+		f:close()
+		vim.cmd('CMakeSelectConfigurePreset')
+	else
+		vim.cmd('CMakeSelectBuildType')
+	end
+end
+
+vim.keymap.set('n', '<leader>1', function() get_cmake_build_command() end, { noremap = true, silent = true, desc = 'Select CMake Build Type' })
 vim.keymap.set('n', '<leader>2', '<cmd>CMakeSelectBuildTarget<CR>', { noremap = true, silent = true, desc = 'Select CMake Build Target' })
 vim.keymap.set('n', '<leader>3', '<cmd>CMakeSelectLaunchTarget<CR>', { noremap = true, silent = true, desc = 'Select CMake Launch Target' })
 vim.keymap.set('n', '<leader>4', '<cmd>CMakeDebug<CR>', { noremap = true, silent = true, desc = 'Run CMake With Debugger' })
 vim.keymap.set('n', '<leader>5', '<cmd>CMakeRun<CR>', { noremap = true, silent = true, desc = 'Run CMake' })
 vim.keymap.set('n', '<leader>+', '<cmd>CMakeBuild<CR>', { noremap = true, silent = true, desc = 'Build CMake' })
+vim.keymap.set('n', '<leader>-', '<cmd>CMakeStopExecutor<CR>', { noremap = true, silent = true, desc = 'Stop CMake Executor' })

@@ -464,9 +464,9 @@ theme.set_highlights = function(opts)
 
     -- LSP
     hl(0, 'DiagnosticError', { fg = c.vscRed, bg = 'NONE' })
-    hl(0, 'DiagnosticWarn', { fg = c.vscYellow, bg = 'NONE' })
-    hl(0, 'DiagnosticInfo', { fg = c.vscBlue, bg = 'NONE' })
-    hl(0, 'DiagnosticHint', { fg = c.vscBlue, bg = 'NONE' })
+    hl(0, 'DiagnosticWarn', { fg = c.vscYellowFaded, bg = 'NONE' })
+    hl(0, 'DiagnosticInfo', { fg = c.vscBlueFaded, bg = 'NONE' })
+    hl(0, 'DiagnosticHint', { fg = c.vscBlueFaded, bg = 'NONE' })
     hl(0, 'DiagnosticUnderlineError', { fg = 'NONE', bg = 'NONE', undercurl = true, sp = c.vscRed })
     hl(0, 'DiagnosticUnderlineWarn', { fg = 'NONE', bg = 'NONE', undercurl = true, sp = c.vscYellow })
     hl(0, 'DiagnosticUnderlineInfo', { fg = 'NONE', bg = 'NONE', undercurl = true, sp = c.vscBlue })
