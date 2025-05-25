@@ -9,7 +9,7 @@ vim.o.linebreak       = false              -- do not wrap
 vim.o.mouse           = 'a'                -- allow mouse
 vim.o.autoindent      = true               -- keep line indentation on new line
 vim.o.indentexpr      = ''                 -- dont be fucked up
-vim.o.relativenumber  = false              -- show absolute line number
+vim.o.relativenumber  = true               -- show relative line number
 vim.o.ignorecase      = true               -- case insensitive search
 vim.o.smartcase       = false              -- respect captical case in search
 vim.o.shiftwidth      = 4                  -- tab width
@@ -24,7 +24,7 @@ vim.o.splitright      = true               -- force all vertical splits to go to
 vim.o.hlsearch        = true               -- highlight text that matches search
 vim.o.showmode        = false              -- show current mode (insert, visual, etc)
 vim.opt.termguicolors = true               -- set termguicolors to enable highlight groups
-vim.o.whichwrap       = 'bs<>[]hl'         -- which "horizontal" keys are allowed to travel to prev/next line
+vim.o.whichwrap       = 'bs<>[]hl<>'       -- which "horizontal" keys are allowed to travel to prev/next line
 vim.o.numberwidth     = 4                  -- width of the line number column
 vim.o.swapfile        = false              -- use swapfile
 vim.o.smartindent     = false              -- piss all over my code FOR me
@@ -43,6 +43,7 @@ vim.o.writebackup     = false              -- prevent saving files open in other
 vim.o.undofile        = true               -- save undo history
 vim.o.completeopt     = 'menuone,noselect' -- set completeopt to have a better completion experience
 vim.o.list = false
+vim.o.foldignore = ''
 
 -- disable autoformat on save
 vim.g.autoformat = false

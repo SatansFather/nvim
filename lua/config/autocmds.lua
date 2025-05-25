@@ -24,3 +24,15 @@ vim.api.nvim_create_autocmd("VimEnter",
 		vim.cmd("inoremap <CR> <CR>.<BS>")
 	end
 })
+
+__AI_ENABLED = true
+vim.api.nvim_create_user_command("ToggleCopilot", function()
+	if __AI_ENABLED then
+		vim.cmd("Copilot disable")
+		__AI_ENABLED = false
+	else
+		vim.cmd("Copilot enable")
+		__AI_ENABLED = true
+	end
+	vim.notify('copilot enabled: ' .. tostring(__AI_ENABLED))
+end, {})
