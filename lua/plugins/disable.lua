@@ -32,4 +32,6 @@ return
 	{ "Saghen/blink.cmp", enabled = false },
 	{ "garymjr/nvim-snippets", enabled = false },
 	{ "rafamadriz/friendly-snippets", enabled = false },
+
+	--{ "nvim-lualine/lualine.nvim", enabled = false },
 }

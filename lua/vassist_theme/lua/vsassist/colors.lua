@@ -79,7 +79,8 @@ colors.get_colors = function()
             vsaGold = '#ffd700',
             vsaDarkKhaki = '#bdb76b',
             vsaPurple = '#bd63c5',
-            vsaBrown = '#bd63c5',
+            --vsaBrown = '#b9771e',
+            vsaBrown = '#b4551e',
             vsaOrange = '#ff8000',
             vsaLightGreen = '#b8d7a3',
         }

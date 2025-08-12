@@ -104,3 +104,9 @@ vim.keymap.set('n', '<leader>d5', '<cmd>CMakeDebug<CR>', { noremap = true, silen
 vim.keymap.set('n', '<leader>5', '<cmd>CMakeRun<CR>', { noremap = true, silent = true, desc = 'Run CMake' })
 vim.keymap.set('n', '<leader>=', '<cmd>CMakeBuild<CR>', { noremap = true, silent = true, desc = 'Build CMake' })
 vim.keymap.set('n', '<leader>-', '<cmd>CMakeStopExecutor<CR>', { noremap = true, silent = true, desc = 'Stop CMake Executor' })
+
+vim.keymap.set('n', '<leader>p', '<cmd>Oil --float .<CR>', { noremap = true, silent = true, desc = 'Open Oil File Explorer' })
+
+vim.keymap.set("n", "<leader>dW", function()
+	require('dapui').elements.watches.add(vim.fn.expand('<cword>'))
+end, { silent = true, desc = "Add word under cursor to DAP watch" })
