@@ -1,7 +1,8 @@
 return
+
 {
     --{ "xiyaowong/transparent.nvim" }, -- allow background transparency
-	{ "jakemason/ouroboros.nvim" },   -- toggle header/source
+	-- { "jakemason/ouroboros.nvim" },   -- toggle header/source
 	--{ "mg979/vim-visual-multi" },     -- vs style multi cursor
 	{ "petertriho/nvim-scrollbar" },
 	{ "kevinhwang91/nvim-hlslens" },
@@ -22,7 +23,10 @@ return
 		'eriks47/generate.nvim',
 		dependencies = { 'nvim-treesitter/nvim-treesitter' }
 	},
-
+	{
+		"SunnyTamang/select-undo.nvim",
+		opts = {},
+	},
 	{
 		"folke/snacks.nvim",
 		opts =
@@ -54,6 +58,17 @@ return
 		-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
 		-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
 		lazy = false,
+	},
+
+	{
+		'nvim-lualine/lualine.nvim',
+		opts =
+		{
+			sections =
+			{
+				lualine_b = {}
+			}
+		}
 	},
 
 	--{

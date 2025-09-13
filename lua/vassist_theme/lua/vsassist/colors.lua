@@ -7,7 +7,8 @@ colors.get_colors = function()
             vscNone = 'NONE',
             vscFront = '#D4D4D4',
             --vscBack = '#1E1E1E',
-            vscBack = '#101418',
+            --vscBack = '#101418',
+            vscBack = '#101010',
 
             vscTabCurrent = '#1E1E1E',
             vscTabOther = '#2D2D2D',
