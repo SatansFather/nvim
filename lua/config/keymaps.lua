@@ -57,7 +57,7 @@ vim.keymap.set('n',  '<leader>o', '<cmd>ClangdSwitchSourceHeader<CR>', { noremap
 -- implement cpp functions
 vim.keymap.set('n', '<leader><S-i>', '<cmd>TSCppDefineClassFunc<CR>', { noremap = true, silent = true, desc = 'Implement C++ Functions' })
 vim.keymap.set('v', '<leader><S-i>', ':TSCppDefineClassFunc<CR>', { noremap = true, silent = true, desc = 'Implement C++ Functions' })
-vim.keymap.set('n', '<leader>i', '<cmd><CR>', { noremap = true, silent = true, desc = 'Implement C++ Functions' })
+--vim.keymap.set('n', '<leader>i', '<cmd><CR>', { noremap = true, silent = true, desc = 'Implement C++ Functions' })
 vim.keymap.set('n', '<leader>i', '<cmd>Generate implementations<CR>', { noremap = true, silent = true, desc = 'Implement C++ Functions' })
 
 -- insert a newline below the current line
@@ -66,9 +66,16 @@ vim.keymap.set('i', '<S-CR>', '<Esc>o', { noremap = true, silent = true })
 -- insert a newline above the current line
 vim.keymap.set('i', '<C-CR>', '<Esc>O', { noremap = true, silent = true })
 
+-- Duplicate a line and comment out the first line
+vim.keymap.set("n", "yc", "yygccp")
+
 -- lazyvim rebinds these for buffer cycling, keep default for cursor placement
 vim.keymap.del('n', '<S-l>')
 vim.keymap.del('n', '<S-h>')
+
+-- shift q to record so i dont accidentally start macros all the time
+vim.api.nvim_set_keymap('n', 'Q', 'q', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'q', '<Nop>', { noremap = true, silent = true })
 
 __CMP_ENABLED = true
 
@@ -85,6 +92,10 @@ vim.keymap.set('n', "<leader>up", "<cmd>ToggleCopilot<cr>", { desc = 'Toggle Cop
 --vim.keymap.set('n', '<leader>fe', '<cmd>lua MiniFiles.open()<CR>', { noremap = true, silent = true, desc = 'Open Mini File Explorer' })
 
 -- cmake commands
+
+-- <C-;> to go to end of line and insert semicolon
+vim.keymap.set('i', '<C-;>', '<Esc>A;<Esc>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-;>', 'A;<Esc>', { noremap = true, silent = true })
 
 _G.cmake_command = require('config/cmake_build_command')
 
@@ -105,15 +116,33 @@ vim.keymap.set('n', '<leader>d5', '<cmd>CMakeDebug<CR>', { noremap = true, silen
 vim.keymap.set('n', '<leader>5', '<cmd>CMakeRun<CR>', { noremap = true, silent = true, desc = 'Run CMake' })
 vim.keymap.set('n', '<leader>=', '<cmd>CMakeBuild<CR>', { noremap = true, silent = true, desc = 'Build CMake' })
 vim.keymap.set('n', '<leader>-', '<cmd>CMakeStopExecutor<CR>', { noremap = true, silent = true, desc = 'Stop CMake Executor' })
+vim.keymap.set('n', '<leader>8', '<cmd>CMakeBuild<CR>', { noremap = true, silent = true, desc = 'Build CMake' })
+vim.keymap.set('n', '<leader>9', '<cmd>CMakeStopExecutor<CR>', { noremap = true, silent = true, desc = 'Stop CMake Executor' })
 
---vim.keymap.set('n', '<leader>p', '<cmd>Oil --float .<CR>', { noremap = true, silent = true, desc = 'Open Oil File Explorer' })
+
+vim.keymap.set('n', '<leader>fo',
+function()
+	local buf_path = vim.api.nvim_buf_get_name(0)
+	local dir = vim.fn.fnamemodify(buf_path, ":h")
+	vim.cmd('Oil ' .. dir)
+end,
+{ noremap = true, silent = true, desc = 'Open Oil File Explorer' })
+
 
 vim.keymap.set("n", "<leader>dW", function()
 	require('dapui').elements.watches.add(vim.fn.expand('<cword>'))
 end, { silent = true, desc = "Add word under cursor to DAP watch" })
 
-
-
--- corne binds
---vim.keymap.set('n', 't', 'd')
-
+vim.keymap.set('n', '<F2>', '<cmd>CMakeOpenRunner<CR>', { remap = true, silent = true, desc = 'next ref' })
+vim.keymap.set('n', '<F3>', '<cmd>CMakeOpenExecutor<CR>', { remap = true, silent = true, desc = 'next ref' })
+vim.keymap.set('n', '<F4>', '<cmd>CMakeCloseExecutor<CR><cmd>CMakeCloseRunner<CR>', { remap = true, silent = true, desc = 'next ref' })
+vim.keymap.set('n', '<F17>', '[[', { remap = true, silent = true, desc = 'prev ref' })
+vim.keymap.set('n', '<F5>', ']]', { remap = true, silent = true, desc = 'next ref' })
+vim.keymap.set('n', '<F18>', '[c', { remap = true, silent = true, desc = 'prev class' })
+vim.keymap.set('n', '<F6>', ']c', { remap = true, silent = true, desc = 'next class' })
+vim.keymap.set('n', '<F19>', '[f', { remap = true, silent = true, desc = 'prev func' })
+vim.keymap.set('n', '<F7>', ']f', { remap = true, silent = true, desc = 'next func' })
+vim.keymap.set('n', '<F11>', 'ci', { remap = true, silent = true, desc = 'change in' })
+vim.keymap.set('n', '<F23>', 'ca', { remap = true, silent = true, desc = 'change in' })
+vim.keymap.set('n', '<F12>', 'di', { remap = true, silent = true, desc = 'delete in' })
+vim.keymap.set('n', '<F24>', 'da', { remap = true, silent = true, desc = 'delete in' })

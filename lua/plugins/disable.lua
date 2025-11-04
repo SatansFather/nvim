@@ -2,10 +2,11 @@
 return
 {
 	{ "akinsho/bufferline.nvim", enabled = false },
-	{ "echasnovski/mini.pairs", enabled = false },
+	{ "nvim.mini/mini.pairs", enabled = false },
 	{ "mfussenegger/nvim-lint", enabled = false },
 	{ "stevearc/conform.nvim", enabled = false },
 	{ "lukas-reineke/indent-blankline.nvim", enabled = false },
+	{ "rcarriga/nvim-dap-ui", enable = false, },
 
 	-- disable hellish autoindent
 	{
@@ -23,7 +24,7 @@ return
 	},
 
 	-- disable tab line animation
-	{ "echasnovski/mini.indentscope", enabled = false },
+	{ "nvim-mini/mini.indentscope", enabled = false },
 	--{ "Saghen/blink.cmp", enabled = false },
 	--{ "rafamadriz/friendly-snippets", enabled = false },
 

@@ -1,6 +1,6 @@
-return
+local plug =
 {
-    "Badhi/nvim-treesitter-cpp-tools",
+    "jacksonhvisuals/nvim-treesitter-cpp-tools",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     -- Optional: Configuration
     opts = function()
@@ -30,3 +30,5 @@ return
     -- End configuration
     config = true,
 }
+
+return plug

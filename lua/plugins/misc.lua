@@ -19,10 +19,10 @@ return
 		end,
 	},
 
-	{
-		'eriks47/generate.nvim',
-		dependencies = { 'nvim-treesitter/nvim-treesitter' }
-	},
+	--{
+	--	'eriks47/generate.nvim',
+	--	dependencies = { 'nvim-treesitter/nvim-treesitter' }
+	--},
 	{
 		"SunnyTamang/select-undo.nvim",
 		opts = {},
@@ -54,7 +54,7 @@ return
 		---@type oil.SetupOpts
 		opts = {},
 		-- Optional dependencies
-		dependencies = { { "echasnovski/mini.icons", opts = {} } },
+		dependencies = { { "nvim-mini/mini.icons", opts = {} } },
 		-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
 		-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
 		lazy = false,
@@ -71,6 +71,24 @@ return
 		}
 	},
 
+	{
+		'ibhagwan/fzf-lua',
+		winopts =
+		{
+			fullscreen = true,
+		},
+	},
+
+	{
+		"zbirenbaum/copilot.lua",
+		suggestion = { enabled = true }
+	},
+    {
+        "igorlfs/nvim-dap-view",
+        ---@module 'dap-view'
+        ---@type dapview.Config
+        opts = {},
+    },
 	--{
 	--	-- Calls `require('slimline').setup({})`
 	--	"sschleemilch/slimline.nvim",

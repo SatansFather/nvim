@@ -1,4 +1,4 @@
-return
+local plug =
 {
     "jake-stewart/multicursor.nvim",
     branch = "1.0",
@@ -100,3 +100,4 @@ return
         hl(0, "MultiCursorDisabledSign", { link = "SignColumn"})
     end
 }
+return {}
