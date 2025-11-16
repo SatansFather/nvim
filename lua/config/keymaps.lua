@@ -50,6 +50,9 @@ vim.keymap.set('n', '<C-S-Right>',':vertical resize -2<CR>', { noremap = true, s
 vim.keymap.set('n', '<C-S-h>',    ':vertical resize +2<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-S-l>',    ':vertical resize -2<CR>', { noremap = true, silent = true })
 
+-- restore last fzf query
+vim.keymap.set('n',  '<leader>r', '<cmd>FzfLua resume<CR>', { noremap = true, silent = true, desc = 'Toggle Header/Source' })
+
 -- toggle header/source
 --vim.keymap.set('n',  '<leader>o', '<cmd> Ouroboros <CR>', { noremap = true, silent = true, desc = 'Toggle Header/Source' })
 vim.keymap.set('n',  '<leader>o', '<cmd>ClangdSwitchSourceHeader<CR>', { noremap = true, silent = true, desc = 'Toggle Header/Source' })
