@@ -4,7 +4,7 @@ return
     --{ "xiyaowong/transparent.nvim" }, -- allow background transparency
 	-- { "jakemason/ouroboros.nvim" },   -- toggle header/source
 	--{ "mg979/vim-visual-multi" },     -- vs style multi cursor
-	{ "petertriho/nvim-scrollbar" },
+	--{ "petertriho/nvim-scrollbar" },
 	{ "kevinhwang91/nvim-hlslens" },
 	--{ "Civitasv/cmake-tools.nvim" },
 
@@ -23,10 +23,10 @@ return
 	--	'eriks47/generate.nvim',
 	--	dependencies = { 'nvim-treesitter/nvim-treesitter' }
 	--},
-	{
-		"SunnyTamang/select-undo.nvim",
-		opts = {},
-	},
+	--{
+	--	"SunnyTamang/select-undo.nvim",
+	--	opts = {},
+	--},
 	{
 		"folke/snacks.nvim",
 		opts =
@@ -89,9 +89,25 @@ return
         ---@type dapview.Config
         opts = {},
     },
+	{
+		"gbprod/yanky.nvim",
+		opts = { },
+		dependencies = { "folke/snacks.nvim" },
+		keys = {
+			{
+			"<leader>p",
+			function()
+				Snacks.picker.yanky()
+			end,
+			mode = { "n", "x" },
+			desc = "Open Yank History",
+			},
+		}
+	}
 	--{
 	--	-- Calls `require('slimline').setup({})`
 	--	"sschleemilch/slimline.nvim",
 	--	opts = {}
 	--}
+
 }

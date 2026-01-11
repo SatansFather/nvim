@@ -94,6 +94,7 @@ vim.keymap.set('n', "<leader>up", "<cmd>ToggleCopilot<cr>", { desc = 'Toggle Cop
 -- open mini file explorer, rebind key from LazyVim that originally opened neotree
 --vim.keymap.set('n', '<leader>fe', '<cmd>lua MiniFiles.open()<CR>', { noremap = true, silent = true, desc = 'Open Mini File Explorer' })
 
+vim.keymap.set('n', '<leader>su', '<cmd>lua Snacks.picker.undo()<CR>', { noremap = true, silent = true, desc = 'view undo tree' })
 -- cmake commands
 
 -- <C-;> to go to end of line and insert semicolon
@@ -117,11 +118,12 @@ vim.keymap.set('n', '<leader>2', '<cmd>CMakeSelectBuildTarget<CR>', { noremap = 
 vim.keymap.set('n', '<leader>3', '<cmd>CMakeSelectLaunchTarget<CR>', { noremap = true, silent = true, desc = 'Select CMake Launch Target' })
 vim.keymap.set('n', '<leader>d5', '<cmd>CMakeDebug<CR>', { noremap = true, silent = true, desc = 'Run CMake With Debugger' })
 vim.keymap.set('n', '<leader>5', '<cmd>CMakeRun<CR>', { noremap = true, silent = true, desc = 'Run CMake' })
-vim.keymap.set('n', '<leader>=', '<cmd>CMakeBuild<CR>', { noremap = true, silent = true, desc = 'Build CMake' })
-vim.keymap.set('n', '<leader>-', '<cmd>CMakeStopExecutor<CR>', { noremap = true, silent = true, desc = 'Stop CMake Executor' })
 vim.keymap.set('n', '<leader>8', '<cmd>CMakeBuild<CR>', { noremap = true, silent = true, desc = 'Build CMake' })
 vim.keymap.set('n', '<leader>9', '<cmd>CMakeStopExecutor<CR>', { noremap = true, silent = true, desc = 'Stop CMake Executor' })
+vim.keymap.set('n', '<leader>-', '<cmd>CMakeStopRunner<CR>', { noremap = true, silent = true, desc = 'Stop CMake Executor' })
 
+vim.keymap.set("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
+vim.keymap.set("n", "<c-n>", "<Plug>(YankyNextEntry)")
 
 vim.keymap.set('n', '<leader>fo',
 function()
