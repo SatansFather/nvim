@@ -1,7 +1,7 @@
-local theme = 0
+local out_theme = 2
 local out = {}
 
-if theme == 0 then
+if out_theme == 0 then
 	out =
 	{
 		dir = "~/.config/nvim/lua/vassist_theme",
@@ -11,7 +11,7 @@ if theme == 0 then
 			vim.cmd.colorscheme("vsassist")
 		end
 	}
-elseif  theme == 1 then
+elseif  out_theme == 1 then
 	out =
 	{
 		"metalelf0/black-metal-theme-neovim",
@@ -25,10 +25,10 @@ elseif  theme == 1 then
 			require("black-metal").load()
 		end
 	}
-elseif theme == 2 then
+elseif out_theme == 2 then
 	out =
 	{
-		"rebelot/kanagawa.nvim",
+		dir = "~/.config/nvim/lua/kanagawa.nvim",
 		lazy = false,
 		priority = 1000,
 		confifg = function()
@@ -63,7 +63,7 @@ elseif theme == 2 then
 			colorscheme = "kanagawa",
 		},
 	}
-elseif theme == 3 then
+elseif out_theme == 3 then
 	out =
 	{
 		"talha-akram/noctis.nvim",
@@ -73,6 +73,43 @@ elseif theme == 3 then
 			vim.cmd.colorscheme("noctis")
 		end
 	}
+elseif out_theme == 4 then
+	out =
+	{
+		"EdenEast/nightfox.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("nightfox").setup({
+				options = {
+					styles = {
+						comments = "italic",
+						functions = "bold",
+						keywords = "bold,italic",
+						variables = "bold",
+					},
+				},
+			})
+			vim.cmd.colorscheme("nightfox")
+		end
+	}
+elseif out_theme == 5 then
+	out =
+	{
+		"oskarnurm/koda.nvim",
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 1000, -- make sure to load this before all the other start plugins
+		config = function()
+			-- require("koda").setup({ transparent = true })
+			vim.cmd("colorscheme koda")
+		end,
+	}
+elseif out_theme == 6 then
+	out = { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, config = function()
+
+		vim.cmd.colorscheme("gruvbox")
+	end }
 end
+
 
 return out

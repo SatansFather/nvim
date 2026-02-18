@@ -2,4 +2,7 @@
 require("config.lazy")
 
 vim.cmd('set cinkeys-=:')
+--vim.cmd('silent! KanagawaCompile')
+
+vim.cmd('colorscheme kanagawa-wave')
 
