@@ -4,7 +4,7 @@ local out = {}
 if out_theme == 0 then
 	out =
 	{
-		dir = "~/.config/nvim/lua/vassist_theme",
+		dir = "~/.config/nvim/lua/colorschemes/vassist_theme",
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -28,7 +28,7 @@ elseif  out_theme == 1 then
 elseif out_theme == 2 then
 	out =
 	{
-		dir = "~/.config/nvim/lua/kanagawa.nvim",
+		dir = "~/.config/nvim/lua/colorschemes/kanagawa.nvim",
 		lazy = false,
 		priority = 1000,
 		confifg = function()

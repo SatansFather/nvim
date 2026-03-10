@@ -73,6 +73,7 @@ return
 
 	{
 		'ibhagwan/fzf-lua',
+		enabled = false,
 		winopts =
 		{
 			fullscreen = true,
@@ -82,6 +83,41 @@ return
       		{ "<leader><space>", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
 			{ "<leader>fF", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
       		{ "<leader>ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
+			{ "<leader>sG", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
+			{ "<leader>sg", LazyVim.pick("live_grep", { root = false }), desc = "Grep (cwd)" },
+		},
+	},
+
+	{
+		"folke/snacks.nvim",
+		opts =
+		{
+			picker =
+			{
+				enabled = true,
+				sources =
+				{
+					files =
+					{
+						finder = "files",
+						format = "file",
+						show_empty = true,
+						supports_live = true,
+						-- Add the -L flag to fd
+						args = { "--follow", "--hidden", "--exclude", ".git" },
+					},
+					grep =
+					{
+						args = { "--follow", "--hidden", "--fixed-strings", "--glob", "!.git/*" },
+					},
+				},
+       		},
+		},
+		keys =
+		{
+			{ "<leader><space>", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
+			{ "<leader>fF", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+			{ "<leader>ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
 			{ "<leader>sG", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
 			{ "<leader>sg", LazyVim.pick("live_grep", { root = false }), desc = "Grep (cwd)" },
 		},
