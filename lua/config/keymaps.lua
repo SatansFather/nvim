@@ -2,8 +2,11 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- save with leader w
+
 vim.keymap.del({ 'n', 'i', 'v', }, '<C-s>')
+--vim.keymap.del({ 'i' }, '<C-k>')
+
+-- save with leader w
 vim.keymap.set('n', '<leader>w', ':wa<CR>', { noremap = true, silent = true, desc = 'Save' })
 vim.keymap.set('n', '<leader><S-w>', ':wa<CR>', { noremap = true, silent = true, desc = 'Save All' })
 

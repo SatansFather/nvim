@@ -14,7 +14,7 @@ return
 			local cmp = require("cmp")
 			opts.mapping = vim.tbl_deep_extend("force", opts.mapping, {
 				["<CR>"] = cmp.config.disable,
-				["<C-s>"] = LazyVim.cmp.confirm({ select = true }),
+				["<C-k>"] = LazyVim.cmp.confirm({ select = true }),
 			})
 		end,
 	},
@@ -147,7 +147,8 @@ return
 			desc = "Open Yank History",
 			},
 		}
-	}
+	},
+
 	--{
 	--	-- Calls `require('slimline').setup({})`
 	--	"sschleemilch/slimline.nvim",
