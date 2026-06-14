@@ -7,6 +7,15 @@
 
 local letter_table = {}
 
+letter_table['_'] = [[
+        
+        
+        
+        
+        
+        
+]]
+
 letter_table['a'] = [[
  █████╗ 
 ██╔══██╗

@@ -154,5 +154,35 @@ return
 	--	"sschleemilch/slimline.nvim",
 	--	opts = {}
 	--}
-
+	{
+		"folke/snacks.nvim",
+		opts =
+		{
+			picker = {
+			sources = {
+				lsp_symbols = {
+				filter = {
+					c = {
+					-- "Class", lsp treats typedefs and forwards as classes and i dont want to search those
+					"Constructor",
+					"Enum",
+					"Field",
+					"Function",
+					"Interface",
+					"Method",
+					"Module",
+					"Namespace",
+					"Package",
+					"Property",
+					"Struct",
+					"Trait",
+					},
+					markdown = true,
+					help = true,
+				},
+				},
+			},
+			},
+		},
+	}
 }

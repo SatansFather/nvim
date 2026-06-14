@@ -43,6 +43,8 @@ vim.keymap.set({ 'n', 'v' }, '<C-Down>', '3<C-e>', { noremap = true, silent = tr
 vim.keymap.set('i', '<C-Up>', '<C-o>3<C-y>', { noremap = true, silent = true })
 vim.keymap.set('i', '<C-Down>', '<C-o>3<C-e>', { noremap = true, silent = true })
 
+vim.keymap.set('t', '<C-Space>', [[<C-\><C-n>]], { desc = 'Exit terminal mode' })
+
 -- window resizing
 vim.keymap.set('n', '<C-S-Up>',   ':resize +2<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-S-Down>', ':resize -2<CR>', { noremap = true, silent = true })
